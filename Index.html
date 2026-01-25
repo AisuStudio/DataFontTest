@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>AF Data Lab | Quad-Axis Showcase</title>
+    <style>
+        :root { --brand-yellow: #f4c542; --bg-gray: #e0e0e0; }
+        body { background-color: var(--bg-gray); font-family: system-ui, sans-serif; padding: 40px; display: flex; flex-direction: column; align-items: center; }
+        .main-container { background-color: var(--brand-yellow); padding: 50px; border: 2px solid #000; width: 100%; max-width: 1100px; box-shadow: 10px 10px 0px #000; }
+        h1 { margin-top: 0; text-transform: uppercase; letter-spacing: 2px; text-align: center; }
+
+        /* Grid auf 4 Spalten angepasst */
+        .af-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 40px; }
+
+        .af-box { background: #fff; border: 2px solid #000; padding: 15px; display: flex; flex-direction: column; align-items: center; }
+        .af-box.highlight { background: #000; color: #fff; border: 3px solid #fff; outline: 2px solid #000; }
+
+        .af-glyph { font-family: 'AFDataVariable', sans-serif; font-size: 140px; height: 180px; display: flex; align-items: center; justify-content: center; line-height: 1; -webkit-font-smoothing: antialiased; }
+        .af-label { margin-top: 10px; font-weight: bold; font-size: 12px; border-top: 1px solid #000; width: 100%; padding-top: 10px; text-align: center; text-transform: uppercase; }
+        .highlight .af-label { border-top-color: #fff; }
+
+        button { background: #000; color: #fff; border: none; padding: 15px 30px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
+        #status { margin-left: 15px; font-size: 13px; font-family: monospace; }
+
+        @font-face {
+            font-family: 'AFDataVariable';
+            src: url('AFDataVF.woff2') format('woff2-variations'), url('AFDataVF.woff') format('woff');
+            font-weight: 100 900;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <h1>AF Data <span style="font-weight: 300;">Visualizer</span></h1>
+
+        <div class="af-grid">
+            <div class="af-box"><div class="af-glyph" id="g-weight">A</div><div class="af-label">Weight Only</div></div>
+            <div class="af-box"><div class="af-glyph" id="g-ascender">A</div><div class="af-label">Ascender Only</div></div>
+            <div class="af-box"><div class="af-glyph" id="g-slant">A</div><div class="af-label">Slant Only</div></div>
+            <div class="af-box highlight"><div class="af-glyph" id="g-all">A</div><div class="af-label">All Combined</div></div>
+        </div>
+
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <button id="toggleBtn">Start Lab</button>
+            <div id="status">Status: Ready</div>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('toggleBtn');
+        const status = document.getElementById('status');
+        const gWght = document.getElementById('g-weight');
+        const gAscn = document.getElementById('g-ascender');
+        const gSlnt = document.getElementById('g-slant');
+        const gAll = document.getElementById('g-all');
+
+        let isRunning = false;
+        let startTime = null;
+
+        function animate(timestamp) {
+            if (!isRunning) return;
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const p = (Math.sin((elapsed / 1500) * Math.PI - (Math.PI / 2)) + 1) / 2;
+
+            // Deine exakten Glyphs-Werte
+            const valWght = 100 + (p * 800);
+            const valAscn = 300 + (p * 400);
+            const valSlnt = -20 + (p * 40);
+
+            // Einzel-Animationen
+            gWght.style.fontVariationSettings = '"wght" ' + valWght;
+            gAscn.style.fontVariationSettings = '"ascn" ' + valAscn + ', "HGHT" ' + valAscn;
+            gSlnt.style.fontVariationSettings = '"slnt" ' + valSlnt;
+
+            // KOMBI-ANIMATION: Hier schicken wir alle Tags in einen String
+            gAll.style.fontVariationSettings = '"wght" ' + valWght + ', "ascn" ' + valAscn + ', "HGHT" ' + valAscn + ', "slnt" ' + valSlnt;
+
+            requestAnimationFrame(animate);
+        }
+
+        btn.addEventListener('click', () => {
+            isRunning = !isRunning;
+            btn.innerText = isRunning ? "Stop" : "Start Lab";
+            if (isRunning) { startTime = null; requestAnimationFrame(animate); }
+        });
+
+        document.fonts.ready.then(() => { status.innerText = "Font loaded."; });
+    </script>
+</body>
+</html>
