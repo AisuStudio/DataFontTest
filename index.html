@@ -18,14 +18,13 @@
 
         h1 { margin-top: 0; text-transform: uppercase; letter-spacing: 2px; text-align: center; margin-bottom: 10px; }
 
-        /* Der neue Text-Paragraf */
         .intro-text {
             max-width: 800px;
             margin: 0 auto 40px auto;
             text-align: center;
             line-height: 1.6;
             font-size: 0.95rem;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
+            border-bottom: 1px solid rgba(0,0,0,0.2);
             padding-bottom: 20px;
         }
         .intro-text a { color: #000; font-weight: bold; text-decoration: underline; }
@@ -57,22 +56,42 @@
         }
         .highlight .af-label { border-top-color: #fff; }
 
+        .controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            margin-bottom: 40px;
+        }
+
         button { background: #000; color: #fff; border: none; padding: 15px 30px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
         #status { margin-left: 15px; font-size: 13px; font-family: monospace; }
+
+        /* Illustration Section */
+        .illustration-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .illu-box { text-align: center; }
+        .illu-box img {
+            width: 100%;
+            height: auto;
+            border: 2px solid #000;
+            background: #fff;
+            margin-bottom: 10px;
+        }
+        .illu-caption { font-size: 12px; font-weight: bold; text-transform: uppercase; }
 
         @font-face {
             font-family: 'AFDataVariable';
             src: url('AFDataVF.woff2') format('woff2-variations'),
                  url('AFDataVF.woff') format('woff');
             font-weight: 100 900;
-            font-style: normal;
         }
     </style>
 </head>
 <body>
 
     <div class="main-container">
-        <h1>AF Data <span style="font-weight: 300;">Visualizer (Prototype)</span></h1>
+        <h1>AF Data <span style="font-weight: 300;">Visualizer</span></h1>
 
         <p class="intro-text">
             I am testing three axes (Width, Ascender and Slant) to display scientific icons for data visualisation within my journalistic graphic novel
@@ -87,9 +106,20 @@
             <div class="af-box highlight"><div class="af-glyph" id="g-all">A</div><div class="af-label">Combined</div></div>
         </div>
 
-        <div style="display: flex; align-items: center; justify-content: center;">
+        <div class="controls">
             <button id="toggleBtn">Start Animation</button>
             <div id="status">Status: Ready</div>
+        </div>
+
+        <div class="illustration-grid">
+            <div class="illu-box">
+                <img src="images/states_01.png" alt="Possible States">
+                <div class="illu-caption">Display of possible states</div>
+            </div>
+            <div class="illu-box">
+                <img src="images/glyphs_01.png" alt="Glyphs App Screenshot">
+                <div class="illu-caption">Screenshot from the Glyphs.App</div>
+            </div>
         </div>
     </div>
 
@@ -110,19 +140,15 @@
             const elapsed = timestamp - startTime;
             const p = (Math.sin((elapsed / 1500) * Math.PI - (Math.PI / 2)) + 1) / 2;
 
-            // Werte-Bereiche
             const w = 100 + (p * 800);
             const a = 300 + (p * 400);
             const s = -20 + (p * 40);
 
-            // Tags basierend auf deiner funktionierenden Vorlage
             const heightTags = `"ascn" ${a}, "HGHT" ${a}, "YTAS" ${a}`;
 
             gWght.style.fontVariationSettings = `"wght" ${w}`;
             gAscn.style.fontVariationSettings = heightTags;
             gSlnt.style.fontVariationSettings = `"slnt" ${s}`;
-
-            // Kombiniert alles in einem String
             gAll.style.fontVariationSettings = `"wght" ${w}, ${heightTags}, "slnt" ${s}`;
 
             requestAnimationFrame(animate);
