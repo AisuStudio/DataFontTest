@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AF Data Lab | The Thawing River</title>
 
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
     <style>
         :root {
@@ -46,26 +48,13 @@
         }
 
         /* SPLASHSCREEN */
-        .splash-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-            border-radius: 10px;
-        }
+        .splash-container { position: relative; width: 100%; overflow: hidden; line-height: 0; border-radius: 10px; }
         .splash-img { width: 100%; height: auto; display: block; }
-
         .splash-headline {
-            position: absolute;
-            top: 40px; left: 40px;
-            margin: 0;
-            font-family: 'Arial Black', 'Arial Bold', sans-serif;
-            font-weight: 900;
-            font-size: clamp(30px, 8.5vw, 60px);
-            line-height: 0.75;
-            color: var(--brand-neon);
-            text-transform: uppercase;
-            pointer-events: none;
+            position: absolute; top: 40px; left: 40px; margin: 0;
+            font-family: 'Arial Black', 'Arial Bold', sans-serif; font-weight: 900;
+            font-size: clamp(30px, 8.5vw, 70px); line-height: 0.75;
+            color: var(--brand-neon); text-transform: uppercase; pointer-events: none;
         }
 
         .inline-glyph { font-family: 'AFDataVariable'; display: inline-block; vertical-align: baseline; text-transform: none; }
@@ -102,11 +91,33 @@
         .slider-labels { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; margin-bottom: 8px; }
         #tempSlider { width: 100%; cursor: pointer; accent-color: var(--deep-blue); }
         .slider-caption { font-size: 11px; font-weight: bold; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-black { background: var(--deep-blue); color: #fff; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block; }
+        .btn-black { background: var(--deep-blue); color: #fff; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block; transition: opacity 0.2s; }
+        .btn-black:hover { opacity: 0.8; }
 
         /* ROADMAP */
         .roadmap-container { display: grid; grid-template-columns: 1fr 400px; gap: 40px; }
         .glyphs-img { width: 100%; border-radius: 10px; border: 1px solid var(--deep-blue); background: #fff; }
+
+        /* CLEAN BREVO NEWSLETTER STYLING */
+        #sib-container { background-color: transparent !important; padding: 0 !important; width: 100% !important; max-width: 600px !important; margin: 0 auto; }
+        #sib-container .sib-form-block { padding: 10px 0 !important; }
+        #sib-container input.input {
+            border: 1px solid var(--deep-blue) !important;
+            border-radius: 5px !important;
+            padding: 12px !important;
+            font-family: var(--font-main) !important;
+            background: white !important;
+        }
+        #sib-container .sib-form-block__button {
+            background-color: var(--deep-blue) !important;
+            border-radius: 5px !important;
+            font-family: var(--font-main) !important;
+            padding: 12px 30px !important;
+            width: auto !important;
+            margin: 0 auto !important;
+            cursor: pointer !important;
+        }
+        .sib-form-message-panel { margin: 20px auto !important; border-radius: 10px !important; }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
@@ -150,8 +161,8 @@
             <div style="flex: 1; min-width: 280px;">
                 <p style="font-size: 14px; margin: 0; line-height: 1.6;">
                     <strong>Varial Type Data Visualizer (Prototype 0.1)</strong><br>
-                    I am testing three axes (Width, Ascender and Slant) to display scientific icons for data visualisation within my journalistic graphic novel
-                    <a href="https://www.aisu.studio/home-blog/fotl" target="_blank" style="color: var(--deep-blue); font-weight: bold; text-decoration: underline;">Project Fire on the Land</a>.
+                    Testing three axes (Width, Ascender and Slant) within the journalistic graphic novel
+                    <a href="https://www.aisu.studio/home-blog/fotl" target="_blank" style="color: var(--deep-blue); font-weight: bold;">Project Fire on the Land</a>.
                 </p>
             </div>
             <button class="btn-black" id="toggleBtn">Start / Stop Animation</button>
@@ -168,11 +179,11 @@
     <section class="section-card infographic-container">
         <div class="sidebar">
             <h3>Scenario:<br>The Thawing River</h3>
-            <p style="font-size: 13px;">This 15 &times; 15 grid maps a boreal forest. The empty curved path represents a riverbed where permafrost erosion causes ground instability.</p>
+            <p style="font-size: 13px;">15 &times; 15 grid mapping a boreal forest. Riverbed where permafrost erosion causes instability.</p>
             <h4>Tree Glyph Legend</h4>
             <ul class="legend-list">
-                <li><strong>Weight:</strong> Fire intensity and carbon load.</li>
-                <li><strong>Ascender:</strong> Biological growth rate.</li>
+                <li><strong>Weight:</strong> Fire intensity.</li>
+                <li><strong>Ascender:</strong> Biological growth.</li>
                 <li><strong>Slant:</strong> Ground instability.</li>
             </ul>
             <div style="margin-top: 30px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
@@ -194,10 +205,9 @@
         <div class="roadmap-text">
             <strong>What’s next</strong>
             <ul style="margin-top:20px; line-height: 2.2; padding-left: 20px; font-size: 14px;">
-                <li>Further development of the font</li>
-                <li>Use of color & real scientific data</li>
-                <li>Custom CSV Upload & Mapping</li>
-                <li>Export formats: SVG, PNG</li>
+                <li>Further font development</li>
+                <li>Real scientific data mapping</li>
+                <li>Custom CSV Upload</li>
             </ul>
         </div>
         <div class="roadmap-image-wrapper">
@@ -205,18 +215,52 @@
         </div>
     </section>
 
-    <section class="section-card" style="text-align: center;">
-        <h3 style="margin-top: 0; margin-bottom: 25px;">Stay Updated</h3>
-        <div style="width: 100%; max-width: 540px; margin: 0 auto; overflow: hidden; border-radius: 10px;">
-            <iframe width="540" height="700" src="https://b4bd4110.sibforms.com/serve/MUIFAINf4licm-T5QvrxZ_CY-pVO_BB-R4-cFt-3gThtSnSjsybwaqLgk6y0_icI6hthoVFF_a9KKkVfQ_Dr3uvvdr2oDpmcFxTOqF8rxdN-Rz-3RUwjSwK2Qu5Q1fApimVHb2wNWggiSVPtbSqjcVZCVSmkijB2YYiuBEY4EdzYdCl9oPlRgMcup1LDGmp5DfPqgF65b4-_tm5PvA==" frameborder="0" scrolling="auto" allowfullscreen style="display: block; width: 100%; border: none;"></iframe>
+    <section class="section-card">
+      <div id="sib-form-container" class="sib-form-container">
+        <div id="success-message" class="sib-form-message-panel" style="display:none; font-size:16px; text-align:center; font-family:var(--font-main); color:#085229; background-color:#e7faf0; padding: 20px;">
+           You successfully signed up to the Fire on the Land newsletter. Thank you! 🍦
         </div>
+        <div id="error-message" class="sib-form-message-panel" style="display:none; font-size:16px; text-align:center; font-family:var(--font-main); color:#661d1d; background-color:#ffeded; padding: 20px;">
+           Your sign-up could not be completed. Please try again. 😬
+        </div>
+
+        <div id="sib-container">
+          <form id="sib-form" method="POST" action="https://b4bd4110.sibforms.com/serve/MUIFAINf4licm-T5QvrxZ_CY-pVO_BB-R4-cFt-3gThtSnSjsybwaqLgk6y0_icI6hthoVFF_a9KKkVfQ_Dr3uvvdr2oDpmcFxTOqF8rxdN-Rz-3RUwjSwK2Qu5Q1fApimVHb2wNWggiSVPtbSqjcVZCVSmkijB2YYiuBEY4EdzYdCl9oPlRgMcup1LDGmp5DfPqgF65b4-_tm5PvA==" data-type="subscription">
+
+            <h2 style="font-family: 'Arial Black', sans-serif; font-size: 32px; text-align: left; margin: 0 0 10px 0;">STAY UPDATED</h2>
+
+            <div class="caption-mono" style="margin-bottom: 25px; text-align: left;">
+              • The Graphic Novel 🍿 &nbsp; • The Free Comic Font 🍦<br>
+              • Data Visualisation Tool 📊 &nbsp; • Exhibitions 🖼️
+            </div>
+
+            <div class="sib-input sib-form-block">
+                <input class="input" type="text" id="EMAIL" name="EMAIL" placeholder="YOUR EMAIL ADDRESS" required />
+            </div>
+
+            <div class="sib-optin sib-form-block">
+                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
+                    <input type="checkbox" id="OPT_IN" name="OPT_IN" required style="margin-top: 5px;">
+                    <span style="font-size:12px; font-family: var(--font-mono); text-align: left;">I accept the privacy policy and would like to receive the newsletter. Unsubscribe anytime.</span>
+                </label>
+            </div>
+
+            <div class="sib-form-block" style="text-align: left;">
+                <button class="sib-form-block__button btn-black" form="sib-form" type="submit">SIGN UP</button>
+            </div>
+
+            <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
+            <input type="hidden" name="locale" value="de">
+          </form>
+        </div>
+      </div>
     </section>
 
-    <footer style="text-align: center; font-size: 11px; padding: 20px; opacity: 0.5;">©2026 Aisu.Studio</footer>
+    <footer style="text-align: center; font-size: 11px; padding: 40px 20px; opacity: 0.5;">©2026 Aisu.Studio</footer>
 </div>
 
 <script>
-    // JS Logic
+    // Animation & Grid Logic (Existing)
     const btn = document.getElementById('toggleBtn');
     const animEls = { w: document.getElementById('g-weight'), a: document.getElementById('g-ascn'), s: document.getElementById('g-slnt'), all: document.getElementById('g-all') };
     let isRunning = false, startAnimTime = null;
@@ -278,11 +322,8 @@
             const tree = document.createElement('div');
             tree.className = 'grid-tree';
             tree.id = `tree-${d.id}`;
-            if (d.isWater) {
-                tree.innerText = '';
-                tree.style.background = "rgba(0, 100, 255, 0.04)";
-                tree.style.borderRadius = "4px";
-            } else { tree.innerText = 'B'; }
+            if (d.isWater) { tree.innerText = ''; tree.style.background = "rgba(0, 100, 255, 0.04)"; tree.style.borderRadius = "4px"; }
+            else { tree.innerText = 'B'; }
             grid.appendChild(tree);
         });
         updateTrees(0);
@@ -298,7 +339,6 @@
             const a = Math.max(300, Math.min(800, d.base_ascn - (temp > 0 ? temp * 30 : 0)));
             el.style.fontVariationSettings = `"wght" ${w}, "slnt" ${s}, "ascn" ${a}, "HGHT" ${a}, "YTAS" ${a}`;
             if (w > 650) el.style.color = "#000";
-            else if (temp > 1 && d.zone === 'bank') el.style.color = "#3a5a6b";
             else el.style.color = "var(--deep-blue)";
         });
     }
@@ -306,15 +346,26 @@
     slider.addEventListener('input', (e) => updateTrees(parseFloat(e.target.value)));
     window.onload = initializeData;
 
-    document.getElementById('downloadCSV').addEventListener('click', function() {
+    document.getElementById('downloadCSV').addEventListener('click', () => {
         const csv = Papa.unparse(forestData);
-        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
         const link = document.createElement("a");
-        link.href = URL.createObjectURL(blob);
-        link.setAttribute("download", "forest_data_curved.csv");
+        link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
+        link.setAttribute("download", "forest_data.csv");
         link.click();
     });
+
+    // Brevo Form Configuration
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Bitte wählen Sie eine Vorwahl.';
+    window.LOCALE = 'de';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Invalid input. 😳";
+    window.REQUIRED_ERROR_MESSAGE = "This field is required. 🫥";
+    window.GENERIC_INVALID_MESSAGE = "Something went wrong. 😳";
+    window.translation = { common: { selectedList: '{quantity} selected', selectedLists: '{quantity} selected' } };
+    var AUTOHIDE = Boolean(0);
 </script>
+
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdXOlssAAAAAORzzUzilIU8CJL2ynBvynNauUk1&hl=de" async defer></script>
 
 </body>
 </html>
