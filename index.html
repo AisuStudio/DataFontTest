@@ -79,61 +79,93 @@
         .glyph-display { font-family: 'AFDataVariable'; font-size: clamp(80px, 15vw, 160px); line-height: 1; transition: font-variation-settings 0.1s linear; }
         .label-mono { font-family: var(--font-mono); font-size: 11px; text-align: center; margin-top: 10px; display: block; text-transform: uppercase; line-height: 1.2; }
 
-        /* INFOGRAPHIC */
+        /* INFOGRAPHIC SECTION */
         .infographic-container { display: grid; grid-template-columns: 320px 1fr; gap: 40px; align-items: start; }
-        .sidebar h3 { margin-top: 0; font-size: 20px; }
+        .sidebar h3 { margin-top: 0; font-size: 20px; margin-bottom: 15px; }
+        .sidebar h4 { font-size: 14px; margin-top: 25px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
         .legend-list { padding-left: 18px; font-size: 13px; line-height: 1.6; margin: 15px 0; }
-        .chart-area { display: flex; flex-direction: column; align-items: center; background: #fff; border-radius: 10px; padding: 25px; border: 1px solid rgba(32, 26, 52, 0.1); width: 100%; }
-        .tree-grid { display: grid; grid-template-columns: repeat(15, 1fr); gap: 1.5%; width: 100%; aspect-ratio: 1 / 1; }
+
+        .visual-column { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+        .chart-area {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            border: 1px solid rgba(32, 26, 52, 0.1);
+            width: 100%;
+        }
+        .tree-grid {
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            gap: 1.5%;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+        }
         .grid-tree { font-family: 'AFDataVariable'; font-size: clamp(10px, 3.5vw, 28px); line-height: 1; text-align: center; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease-out; }
 
-        .slider-wrapper { width: 100%; max-width: 450px; margin-top: 30px; text-align: center; }
+        .slider-wrapper {
+            width: 100%;
+            max-width: 450px;
+            margin-top: 30px;
+            text-align: center;
+        }
         .slider-labels { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; margin-bottom: 8px; }
         #tempSlider { width: 100%; cursor: pointer; accent-color: var(--deep-blue); }
         .slider-caption { font-size: 11px; font-weight: bold; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
+
         .btn-black { background: var(--deep-blue); color: #fff; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block; transition: opacity 0.2s; }
         .btn-black:hover { opacity: 0.8; }
 
-        /* ROADMAP */
-        .roadmap-container { display: grid; grid-template-columns: 1fr 400px; gap: 40px; }
-        .glyphs-img { width: 100%; border-radius: 10px; border: 1px solid var(--deep-blue); background: #fff; }
+        .github-link { color: var(--deep-blue); text-decoration: underline; font-family: var(--font-mono); font-size: 12px; font-weight: bold; transition: opacity 0.2s; }
+        .github-link:hover { opacity: 0.6; }
 
-        /* CLEAN BREVO NEWSLETTER STYLING */
-        #sib-container { background-color: transparent !important; padding: 0 !important; width: 100% !important; max-width: 600px !important; margin: 0 auto; }
-        #sib-container .sib-form-block { padding: 10px 0 !important; }
+        /* ROADMAP SECTION */
+        .roadmap-container { display: flex; flex-direction: column; gap: 30px; }
+        .roadmap-visuals { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .roadmap-img-box { display: flex; flex-direction: column; gap: 10px; }
+        .roadmap-img-box img { width: 100%; border-radius: 10px; border: 1px solid var(--deep-blue); background: #fff; }
+        .img-caption { font-family: var(--font-mono); font-size: 11px; font-weight: bold; text-transform: uppercase; opacity: 0.8; }
+
+        /* NEWSLETTER STYLING (BREVO OVERRIDES) */
+        #sib-container {
+            padding: 0 !important;
+            margin: 0 !important;
+            font-family: var(--font-main) !important;
+            background-color: transparent !important;
+            width: 100% !important;
+            max-width: 100% !important;
+        }
+        #sib-container .sib-form-block p { margin: 0; padding: 0; }
         #sib-container input.input {
             border: 1px solid var(--deep-blue) !important;
             border-radius: 5px !important;
             padding: 12px !important;
-            font-family: var(--font-main) !important;
             background: white !important;
+            font-family: var(--font-main) !important;
+            color: var(--deep-blue) !important;
         }
         #sib-container .sib-form-block__button {
             background-color: var(--deep-blue) !important;
+            color: white !important;
             border-radius: 5px !important;
+            padding: 12px 25px !important;
+            font-weight: bold !important;
             font-family: var(--font-main) !important;
-            padding: 12px 30px !important;
-            width: auto !important;
-            margin: 0 auto !important;
+            border: none !important;
             cursor: pointer !important;
+            transition: opacity 0.2s;
         }
-        .sib-form-message-panel { margin: 20px auto !important; border-radius: 10px !important; }
+        #sib-container .sib-form-block__button:hover { opacity: 0.8; }
+        .sib-form-message-panel { border-radius: 10px !important; border: none !important; margin-bottom: 20px !important; }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
-            .infographic-container, .roadmap-container { grid-template-columns: 1fr; }
+            .infographic-container { grid-template-columns: 1fr; }
             .sidebar { order: 2; width: 100%; }
-            .chart-area { order: 1; }
+            .visual-column { order: 1; }
+            .roadmap-visuals { grid-template-columns: 1fr; }
             .glyph-grid { grid-template-columns: repeat(2, 1fr); }
-            .splash-caption { max-width: 100%; }
             .splash-headline { top: 20px; left: 20px; }
-            .roadmap-image-wrapper { order: -1; }
-            .section-card { padding: 25px; }
-        }
-
-        @media (max-width: 500px) {
-            .glyph-grid { grid-template-columns: 1fr; }
-            .grid-tree { font-size: 5.5vw; }
         }
     </style>
 </head>
@@ -179,20 +211,34 @@
     <section class="section-card infographic-container">
         <div class="sidebar">
             <h3>Scenario:<br>The Thawing River</h3>
-            <p style="font-size: 13px;">15 &times; 15 grid mapping a boreal forest. Riverbed where permafrost erosion causes instability.</p>
+            <p style="font-size: 13px; line-height: 1.5;">This 15 &times; 15 grid maps a boreal (Northern) forest. The empty curved path represents a riverbed where permafrost erosion causes ground instability.</p>
+
             <h4>Tree Glyph Legend</h4>
             <ul class="legend-list">
                 <li><strong>Weight:</strong> Fire intensity.</li>
                 <li><strong>Ascender:</strong> Biological growth.</li>
                 <li><strong>Slant:</strong> Ground instability.</li>
             </ul>
-            <div style="margin-top: 30px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
+
+            <h4>Simulation</h4>
+            <p style="font-size: 13px; line-height: 1.5;">Adjust the temperature deviation to see trees along the riverbanks collapse as the soil thaws.</p>
+
+            <h4>Tools</h4>
+            <p style="font-size: 13px; line-height: 1.5; font-family: var(--font-mono); margin-bottom: 5px;">Glyphs.App / Figma / Gemini / PyCharm</p>
+            <a href="https://github.com/AisuStudio/DataFontTest" target="_blank" class="github-link">View on GitHub</a>
+
+            <h4 style="font-size: 13px; margin-top:25px; text-transform: none; line-height: 1.4;">Note: <b>This chart uses synthetic data to demonstrate the Variable Type technology.</b></h4>
+
+            <div style="margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
                 <button id="downloadCSV" class="btn-black">Download CSV Structure</button>
             </div>
         </div>
 
-        <div class="chart-area">
-            <div id="grid-visualizer" class="tree-grid"></div>
+        <div class="visual-column">
+            <div class="chart-area">
+                <div id="grid-visualizer" class="tree-grid"></div>
+            </div>
+
             <div class="slider-wrapper">
                 <div class="slider-labels"><span>+4°C</span><span>0°C</span><span>-4°C</span></div>
                 <input type="range" id="tempSlider" min="-4" max="4" step="0.1" value="0">
@@ -202,65 +248,71 @@
     </section>
 
     <section class="section-card roadmap-container">
+        <div class="roadmap-visuals">
+            <div class="roadmap-img-box">
+                <img src="images/InDesign.gif" alt="InDesign GIF">
+                <span class="img-caption">Font axes adjustment in InDesign</span>
+            </div>
+            <div class="roadmap-img-box">
+                <img src="images/glyphs_01.png" alt="Glyphs App">
+                <span class="img-caption">Paths and masters in glyphs.app.</span>
+            </div>
+        </div>
+
         <div class="roadmap-text">
             <strong>What’s next</strong>
-            <ul style="margin-top:20px; line-height: 2.2; padding-left: 20px; font-size: 14px;">
+            <ul style="margin-top:15px; line-height: 2; padding-left: 20px; font-size: 14px;">
                 <li>Further font development</li>
                 <li>Real scientific data mapping</li>
                 <li>Custom CSV Upload</li>
             </ul>
         </div>
-        <div class="roadmap-image-wrapper">
-            <img src="images/glyphs_01.png" class="glyphs-img">
-        </div>
     </section>
 
     <section class="section-card">
-      <div id="sib-form-container" class="sib-form-container">
-        <div id="success-message" class="sib-form-message-panel" style="display:none; font-size:16px; text-align:center; font-family:var(--font-main); color:#085229; background-color:#e7faf0; padding: 20px;">
-           You successfully signed up to the Fire on the Land newsletter. Thank you! 🍦
+        <div id="sib-form-container" class="sib-form-container">
+            <div id="error-message" class="sib-form-message-panel" style="display:none; font-size:16px; text-align:left; font-family:var(--font-main); color:#661d1d; background-color:#ffeded; padding: 20px;">
+                Your sign-up could not be completed, please try again. 😬
+            </div>
+            <div id="success-message" class="sib-form-message-panel" style="display:none; font-size:16px; text-align:left; font-family:var(--font-main); color:#085229; background-color:#e7faf0; padding: 20px;">
+                You successfully signed up! Thank you! 🍦
+            </div>
+
+            <div id="sib-container">
+                <form id="sib-form" method="POST" action="https://b4bd4110.sibforms.com/serve/MUIFAINf4licm-T5QvrxZ_CY-pVO_BB-R4-cFt-3gThtSnSjsybwaqLgk6y0_icI6hthoVFF_a9KKkVfQ_Dr3uvvdr2oDpmcFxTOqF8rxdN-Rz-3RUwjSwK2Qu5Q1fApimVHb2wNWggiSVPtbSqjcVZCVSmkijB2YYiuBEY4EdzYdCl9oPlRgMcup1LDGmp5DfPqgF65b4-_tm5PvA==" data-type="subscription">
+
+                    <h2 style="font-family: 'Arial Black', sans-serif; font-size: clamp(24px, 5vw, 32px); margin: 0 0 10px 0;">Fire on the Land Newsletter</h2>
+
+                    <div style="font-family: var(--font-mono); font-weight: bold; font-size: 14px; margin-bottom: 25px; line-height: 1.6;">
+                        Stay up to date with the latest news:<br>
+                        • The Graphic Novel 🍿 &nbsp;<br>
+                        • The Free Comic Font 🍦<br>
+                        • Variable Font × Data Visualisation Tool 📊<br>
+                        • Exhibitions and more 🖼️
+                    </div>
+
+                    <div class="sib-input sib-form-block">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; font-size: 14px;">Sign up with your email address</label>
+                        <input class="input" type="text" id="EMAIL" name="EMAIL" placeholder="EMAIL" required />
+                        <p style="font-size: 11px; margin-top: 8px; opacity: 0.6;">Please enter your email address to register, e.g. abc@xyz.com.</p>
+                    </div>
+
+                    <div class="sib-form-block" style="margin-top: 20px;">
+                        <button class="sib-form-block__button" form="sib-form" type="submit">Sign Up</button>
+                    </div>
+
+                    <input type="text" name="email_address_check" value="" style="display:none;">
+                    <input type="hidden" name="locale" value="de">
+                </form>
+            </div>
         </div>
-        <div id="error-message" class="sib-form-message-panel" style="display:none; font-size:16px; text-align:center; font-family:var(--font-main); color:#661d1d; background-color:#ffeded; padding: 20px;">
-           Your sign-up could not be completed. Please try again. 😬
-        </div>
-
-        <div id="sib-container">
-          <form id="sib-form" method="POST" action="https://b4bd4110.sibforms.com/serve/MUIFAINf4licm-T5QvrxZ_CY-pVO_BB-R4-cFt-3gThtSnSjsybwaqLgk6y0_icI6hthoVFF_a9KKkVfQ_Dr3uvvdr2oDpmcFxTOqF8rxdN-Rz-3RUwjSwK2Qu5Q1fApimVHb2wNWggiSVPtbSqjcVZCVSmkijB2YYiuBEY4EdzYdCl9oPlRgMcup1LDGmp5DfPqgF65b4-_tm5PvA==" data-type="subscription">
-
-            <h2 style="font-family: 'Arial Black', sans-serif; font-size: 32px; text-align: left; margin: 0 0 10px 0;">STAY UPDATED</h2>
-
-            <div class="caption-mono" style="margin-bottom: 25px; text-align: left;">
-              • The Graphic Novel 🍿 &nbsp;<br> • The Free Comic Font 🍦<br>
-              • Data Visualisation Tool 📊 &nbsp;<br> • Exhibitions 🖼️
-            </div>
-
-            <div class="sib-input sib-form-block">
-                <input class="input" type="text" id="EMAIL" name="EMAIL" placeholder="YOUR EMAIL ADDRESS" required />
-            </div>
-
-            <div class="sib-optin sib-form-block">
-                <label style="display: flex; align-items: flex-start; gap: 10px; cursor: pointer;">
-                    <input type="checkbox" id="OPT_IN" name="OPT_IN" required style="margin-top: 5px;">
-                    <span style="font-size:12px; font-family: var(--font-mono); text-align: left;">I accept the privacy policy and would like to receive the newsletter. Unsubscribe anytime.</span>
-                </label>
-            </div>
-
-            <div class="sib-form-block" style="text-align: left;">
-                <button class="sib-form-block__button btn-black" form="sib-form" type="submit">SIGN UP</button>
-            </div>
-
-            <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
-            <input type="hidden" name="locale" value="de">
-          </form>
-        </div>
-      </div>
     </section>
 
     <footer style="text-align: center; font-size: 11px; padding: 40px 20px; opacity: 0.5;">©2026 Aisu.Studio</footer>
 </div>
 
 <script>
-    // Animation & Grid Logic (Existing)
+    // Animation Logic
     const btn = document.getElementById('toggleBtn');
     const animEls = { w: document.getElementById('g-weight'), a: document.getElementById('g-ascn'), s: document.getElementById('g-slnt'), all: document.getElementById('g-all') };
     let isRunning = false, startAnimTime = null;
@@ -270,15 +322,15 @@
         if (!startAnimTime) startAnimTime = ts;
         const p = (Math.sin(((ts - startAnimTime) / 1500) * Math.PI - (Math.PI / 2)) + 1) / 2;
         const w = 100 + (p * 800), a = 300 + (p * 400), s = -20 + (p * 40);
-        const tags = `"ascn" ${a}, "HGHT" ${a}, "YTAS" ${a}`;
         animEls.w.style.fontVariationSettings = `"wght" ${w}`;
-        animEls.a.style.fontVariationSettings = tags;
+        animEls.a.style.fontVariationSettings = `"ascn" ${a}, "HGHT" ${a}, "YTAS" ${a}`;
         animEls.s.style.fontVariationSettings = `"slnt" ${s}`;
-        animEls.all.style.fontVariationSettings = `"wght" ${w}, ${tags}, "slnt" ${s}`;
+        animEls.all.style.fontVariationSettings = `"wght" ${w}, "ascn" ${a}, "HGHT" ${a}, "YTAS" ${a}, "slnt" ${s}`;
         requestAnimationFrame(animateHeader);
     }
     btn.addEventListener('click', () => { isRunning = !isRunning; if (isRunning) { startAnimTime = null; requestAnimationFrame(animateHeader); } });
 
+    // Chart Logic
     const slider = document.getElementById('tempSlider');
     const grid = document.getElementById('grid-visualizer');
     let forestData = [];
@@ -304,7 +356,7 @@
                 const isWater = dist < 0.9;
                 const isBank = dist >= 0.9 && dist < 2.5;
                 forestData.push({
-                    id: (r-1)*15 + c, row: r, col: c, isWater: isWater,
+                    id: (r-1)*15 + c, isWater: isWater,
                     base_wght: isWater ? 0 : (isBank ? 100 : 150),
                     base_ascn: isWater ? 0 : (550 + Math.random()*150),
                     base_slnt: isBank ? 12 : 0,
@@ -322,7 +374,7 @@
             const tree = document.createElement('div');
             tree.className = 'grid-tree';
             tree.id = `tree-${d.id}`;
-            if (d.isWater) { tree.innerText = ''; tree.style.background = "rgba(0, 100, 255, 0.04)"; tree.style.borderRadius = "4px"; }
+            if (d.isWater) { tree.style.background = "rgba(0, 100, 255, 0.04)"; tree.style.borderRadius = "4px"; }
             else { tree.innerText = 'B'; }
             grid.appendChild(tree);
         });
@@ -333,13 +385,10 @@
         forestData.forEach(d => {
             if (d.isWater) return;
             const el = document.getElementById(`tree-${d.id}`);
-            if (!el) return;
             const w = Math.max(100, Math.min(900, d.base_wght + (temp * d.sens_fire * 80)));
             const s = Math.max(-20, Math.min(45, d.base_slnt + (temp * d.sens_slant * 7)));
             const a = Math.max(300, Math.min(800, d.base_ascn - (temp > 0 ? temp * 30 : 0)));
             el.style.fontVariationSettings = `"wght" ${w}, "slnt" ${s}, "ascn" ${a}, "HGHT" ${a}, "YTAS" ${a}`;
-            if (w > 650) el.style.color = "#000";
-            else el.style.color = "var(--deep-blue)";
         });
     }
 
@@ -354,18 +403,15 @@
         link.click();
     });
 
-    // Brevo Form Configuration
-    window.REQUIRED_CODE_ERROR_MESSAGE = 'Bitte wählen Sie eine Vorwahl.';
+    // Brevo Scripts
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Wähle bitte einen Ländervorwahl aus.';
     window.LOCALE = 'de';
-    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Invalid input. 😳";
-    window.REQUIRED_ERROR_MESSAGE = "This field is required. 🫥";
-    window.GENERIC_INVALID_MESSAGE = "Something went wrong. 😳";
-    window.translation = { common: { selectedList: '{quantity} selected', selectedLists: '{quantity} selected' } };
-    var AUTOHIDE = Boolean(0);
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Your information seems not valid, please try again. 😳";
+    window.REQUIRED_ERROR_MESSAGE = "This field can't be left empty. 🫥 ";
+    window.GENERIC_INVALID_MESSAGE = "Your information seems not valid, please try again. 😳";
+    window.translation = { common: { selectedList: '{quantity} Liste ausgewählt', selectedLists: '{quantity} Listen ausgewählt', selectedOption: '{quantity} ausgewählt', selectedOptions: '{quantity} ausgewählt', } };
 </script>
-
 <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-<script src="https://www.google.com/recaptcha/api.js?render=6LdXOlssAAAAAORzzUzilIU8CJL2ynBvynNauUk1&hl=de" async defer></script>
 
 </body>
 </html>
