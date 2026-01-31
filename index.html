@@ -47,125 +47,48 @@
             width: 100%;
         }
 
-        /* SPLASHSCREEN */
-        .splash-container { position: relative; width: 100%; overflow: hidden; line-height: 0; border-radius: 10px; }
-        .splash-img { width: 100%; height: auto; display: block; }
-        .splash-headline {
-            position: absolute; top: 40px; left: 40px; margin: 0;
-            font-family: 'Arial Black', 'Arial Bold', sans-serif; font-weight: 900;
-            font-size: clamp(30px, 8.5vw, 60px); line-height: 0.75;
-            color: var(--brand-neon); text-transform: uppercase; pointer-events: none;
+        /* TYPOGRAPHY: HEADLINES */
+        .headline-style {
+            font-family: 'Arial Black', 'Arial Bold', sans-serif;
+            font-weight: 900;
+            font-size: clamp(30px, 8.5vw, 60px);
+            line-height: 0.75;
+            text-transform: uppercase;
+            margin: 0;
         }
 
         .inline-glyph { font-family: 'AFDataVariable'; display: inline-block; vertical-align: baseline; text-transform: none; }
+
+        /* Animationen */
         .glyph-a { animation: pulse-A 3s infinite ease-in-out; }
         @keyframes pulse-A {
             0%, 100% { font-variation-settings: "wght" 900, "ascn" 300, "HGHT" 300, "YTAS" 300, "slnt" -20; }
             50% { font-variation-settings: "wght" 900, "ascn" 700, "HGHT" 700, "YTAS" 700, "slnt" 20; }
         }
+
         .glyph-i { animation: pulse-I 3s infinite ease-in-out; }
         @keyframes pulse-I {
             0%, 100% { font-variation-settings: "wght" 500, "ascn" 300, "HGHT" 300, "YTAS" 300, "slnt" 0; }
             50% { font-variation-settings: "wght" 900, "ascn" 700, "HGHT" 700, "YTAS" 700, "slnt" 0; }
         }
 
-        .splash-caption { width: 100%; max-width: 66%; margin-top: 20px; }
-        .caption-arial { font-family: 'Arial', sans-serif; font-size: 16px; line-height: 1.4; margin-bottom: 15px; }
-        .caption-mono { font-family: var(--font-mono); font-weight: bold;  font-size: 12px; line-height: 1.4; opacity: 0.8; }
-
-        /* GLYPH GRID */
-        .glyph-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 30px; }
+        /* TILES & CONTENT */
         .glyph-box { border: 1px solid var(--deep-blue); height: 220px; display: flex; align-items: center; justify-content: center; background: transparent; }
         .glyph-display { font-family: 'AFDataVariable'; font-size: clamp(80px, 15vw, 160px); line-height: 1; transition: font-variation-settings 0.1s linear; }
         .label-mono { font-family: var(--font-mono); font-size: 11px; text-align: center; margin-top: 10px; display: block; text-transform: uppercase; line-height: 1.2; }
 
-        /* INFOGRAPHIC SECTION */
-        .infographic-container { display: grid; grid-template-columns: 320px 1fr; gap: 40px; align-items: start; }
-        .sidebar h3 { margin-top: 0; font-size: 20px; margin-bottom: 15px; }
-        .sidebar h4 { font-size: 14px; margin-top: 25px; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .legend-list { padding-left: 18px; font-size: 13px; line-height: 1.6; margin: 15px 0; }
+        .img-box img { width: 100%; border-radius: 10px; border: 1px solid var(--deep-blue); background: #fff; }
+        .img-caption { font-family: var(--font-mono); font-size: 11px; font-weight: bold; text-transform: uppercase; opacity: 0.8; }
+        .btn-black { background: var(--deep-blue); color: #fff; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block; transition: opacity 0.2s; }
 
-        .visual-column { display: flex; flex-direction: column; align-items: center; width: 100%; }
-
-        .chart-area {
-            background: #fff;
-            border-radius: 10px;
-            padding: 25px;
-            border: 1px solid rgba(32, 26, 52, 0.1);
-            width: 100%;
-        }
-        .tree-grid {
-            display: grid;
-            grid-template-columns: repeat(15, 1fr);
-            gap: 1.5%;
-            width: 100%;
-            aspect-ratio: 1 / 1;
-        }
+        /* GRID STYLING */
+        .tree-grid { display: grid; grid-template-columns: repeat(15, 1fr); gap: 1.5%; width: 100%; aspect-ratio: 1 / 1; }
         .grid-tree { font-family: 'AFDataVariable'; font-size: clamp(10px, 3.5vw, 28px); line-height: 1; text-align: center; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease-out; }
 
-        .slider-wrapper {
-            width: 100%;
-            max-width: 450px;
-            margin-top: 30px;
-            text-align: center;
-        }
-        .slider-labels { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; margin-bottom: 8px; }
-        #tempSlider { width: 100%; cursor: pointer; accent-color: var(--deep-blue); }
-        .slider-caption { font-size: 11px; font-weight: bold; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px; }
-
-        .btn-black { background: var(--deep-blue); color: #fff; border: none; padding: 12px 20px; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; font-size: 12px; display: inline-block; transition: opacity 0.2s; }
-        .btn-black:hover { opacity: 0.8; }
-
-        .github-link { color: var(--deep-blue); text-decoration: underline; font-family: var(--font-mono); font-size: 12px; font-weight: bold; transition: opacity 0.2s; }
-        .github-link:hover { opacity: 0.6; }
-
-        /* ROADMAP SECTION */
-        .roadmap-container { display: flex; flex-direction: column; gap: 30px; }
-        .roadmap-visuals { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .roadmap-img-box { display: flex; flex-direction: column; gap: 10px; }
-        .roadmap-img-box img { width: 100%; border-radius: 10px; border: 1px solid var(--deep-blue); background: #fff; }
-        .img-caption { font-family: var(--font-mono); font-size: 11px; font-weight: bold; text-transform: uppercase; opacity: 0.8; }
-
-        /* NEWSLETTER STYLING (BREVO OVERRIDES) */
-        #sib-container {
-            padding: 0 !important;
-            margin: 0 !important;
-            font-family: var(--font-main) !important;
-            background-color: transparent !important;
-            width: 100% !important;
-            max-width: 100% !important;
-        }
-        #sib-container .sib-form-block p { margin: 0; padding: 0; }
-        #sib-container input.input {
-            border: 1px solid var(--deep-blue) !important;
-            border-radius: 5px !important;
-            padding: 12px !important;
-            background: white !important;
-            font-family: var(--font-main) !important;
-            color: var(--deep-blue) !important;
-        }
-        #sib-container .sib-form-block__button {
-            background-color: var(--deep-blue) !important;
-            color: white !important;
-            border-radius: 5px !important;
-            padding: 12px 25px !important;
-            font-weight: bold !important;
-            font-family: var(--font-main) !important;
-            border: none !important;
-            cursor: pointer !important;
-            transition: opacity 0.2s;
-        }
-        #sib-container .sib-form-block__button:hover { opacity: 0.8; }
-        .sib-form-message-panel { border-radius: 10px !important; border: none !important; margin-bottom: 20px !important; }
-
-        /* RESPONSIVE */
         @media (max-width: 900px) {
-            .infographic-container { grid-template-columns: 1fr; }
-            .sidebar { order: 2; width: 100%; }
-            .visual-column { order: 1; }
-            .roadmap-visuals { grid-template-columns: 1fr; }
-            .glyph-grid { grid-template-columns: repeat(2, 1fr); }
-            .splash-headline { top: 20px; left: 20px; }
+            .infographic-container { grid-template-columns: 1fr !important; }
+            .content-visuals { grid-template-columns: 1fr !important; }
+            .glyph-grid { grid-template-columns: repeat(2, 1fr) !important; }
         }
     </style>
 </head>
@@ -174,145 +97,109 @@
 <div class="page-wrapper">
 
     <section class="section-card">
-        <div class="splash-container">
-            <img src="images/fluxtower.jpg" alt="Flux Tower Research" class="splash-img">
-            <h1 class="splash-headline">
+        <div style="position: relative; width: 100%; overflow: hidden; line-height: 0; border-radius: 10px;">
+            <img src="images/fluxtower.jpg" alt="Flux Tower Research" style="width: 100%; height: auto; display: block;">
+            <h1 class="headline-style" style="position: absolute; top: 40px; left: 40px; color: var(--brand-neon); pointer-events: none;">
                 V<span class="inline-glyph glyph-a">B</span>RIABLE TYPE<br>
                 DATA-VISUALISAT<span class="inline-glyph glyph-i">A</span>ON<br>
                 EXPERIMENT
             </h1>
         </div>
-        <div class="splash-caption">
-            <p class="caption-arial">The research-team of Prof. Oliver Sonnentag (UdeM) reinstating the flux tower after it was destroyed by a severe late season wildfire in 2022.</p>
-            <p class="caption-mono">March 2023, near the Scotty Creek Research Station, Northwest Territories, Canada.<br>Photo: Dominik Heilig (Aisu.Studio)</p>
+        <div style="width: 100%; max-width: 66%; margin-top: 20px;">
+            <p style="font-family: 'Arial', sans-serif; font-size: 16px; line-height: 1.4; margin-bottom: 15px;">The research-team of Prof. Oliver Sonnentag (UdeM) reinstating the flux tower after it was destroyed by a severe late season wildfire in 2022.</p>
+            <p style="font-family: var(--font-mono); font-weight: bold; font-size: 12px; line-height: 1.4; opacity: 0.8;">March 2023, near the Scotty Creek Research Station, Northwest Territories, Canada.<br>Photo: Dominik Heilig (Aisu.Studio)</p>
         </div>
     </section>
 
     <section class="section-card">
-        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 20px;">
-            <div style="flex: 1; min-width: 280px;">
-                <p style="font-size: 14px; margin: 0; line-height: 1.6;">
-                    <strong>Varial Type Data Visualizer (Prototype 0.1)</strong><br>
-                    Testing three axes (Width, Ascender and Slant) within the journalistic graphic novel
-                    <a href="https://www.aisu.studio/fotl" target="_blank" style="color: var(--deep-blue); font-weight: bold;">Project Fire on the Land</a>.
-                </p>
-            </div>
-            <button class="btn-black" id="toggleBtn">Start / Stop Animation</button>
+        <div style="margin-bottom: 30px;">
+            <p style="font-size: 14px; margin: 0; line-height: 1.6;">
+                <strong>Varial Type Data Visualizer (Prototype 0.1)</strong><br>
+                Testing three axes (Width, Ascender and Slant) within the journalistic graphic novel
+                <a href="https://www.aisu.studio/fotl" target="_blank" style="color: var(--deep-blue); font-weight: bold;">Project Fire on the Land</a>.
+            </p>
         </div>
 
-        <div class="glyph-grid">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0;" class="content-visuals">
+            <div class="img-box">
+                <img src="images/InDesign.gif" alt="InDesign Adjustment">
+                <span class="img-caption">Font axes adjustment in InDesign</span>
+            </div>
+            <div class="img-box">
+                <img src="images/glyphs_01.png" alt="Glyphs App">
+                <span class="img-caption">Paths and masters in glyphs.app.</span>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 30px;" class="glyph-grid">
             <div><div class="glyph-box"><div class="glyph-display" id="g-weight">B</div></div><span class="label-mono">Width<br>Fire-Impact</span></div>
             <div><div class="glyph-box"><div class="glyph-display" id="g-ascn">B</div></div><span class="label-mono">Ascender Height<br>Growth</span></div>
             <div><div class="glyph-box"><div class="glyph-display" id="g-slnt">B</div></div><span class="label-mono">Slant<br>Permafrost Thaw</span></div>
             <div><div class="glyph-box" style="background:var(--deep-blue); color:#fff;"><div class="glyph-display" id="g-all">B</div></div><span class="label-mono">Combined</span></div>
         </div>
+
+        <div style="text-align: center; margin-top: 30px;">
+            <button class="btn-black" id="toggleBtn">Start / Stop Animation</button>
+        </div>
     </section>
 
-    <section class="section-card infographic-container">
+    <section class="section-card infographic-container" style="display: grid; grid-template-columns: 320px 1fr; gap: 40px; align-items: start;">
         <div class="sidebar">
-            <h3>Scenario:<br>The Thawing River</h3>
-            <p style="font-size: 13px; line-height: 1.5;">This 15 &times; 15 grid maps a boreal (Northern) forest. The empty curved path represents a riverbed where permafrost erosion causes ground instability.</p>
+            <h3 style="margin-top: 0; font-size: 20px; margin-bottom: 15px;">Scenario:<br>The Thawing River</h3>
+            <p style="font-size: 13px; line-height: 1.5;">This 15 &times; 15 grid maps a boreal forest. The empty curved path represents a riverbed where permafrost erosion causes ground instability.</p>
 
-            <h4>Tree Glyph Legend</h4>
-            <ul class="legend-list">
+            <h4 style="font-size: 14px; margin-top: 25px; text-transform: uppercase;">Tree Glyph Legend</h4>
+            <ul style="padding-left: 18px; font-size: 13px; line-height: 1.6; margin: 15px 0;">
                 <li><strong>Weight:</strong> Fire intensity.</li>
                 <li><strong>Ascender:</strong> Biological growth.</li>
                 <li><strong>Slant:</strong> Ground instability.</li>
             </ul>
 
-            <h4>Simulation</h4>
+            <h4 style="font-size: 14px; margin-top: 25px; text-transform: uppercase;">Simulation</h4>
             <p style="font-size: 13px; line-height: 1.5;">Adjust the temperature deviation to see trees along the riverbanks collapse as the soil thaws.</p>
-
-            <h4>Tools</h4>
-            <p style="font-size: 13px; line-height: 1.5; font-family: var(--font-mono); margin-bottom: 5px;">Glyphs.App / Figma / Gemini / PyCharm</p>
-            <a href="https://github.com/AisuStudio/DataFontTest" target="_blank" class="github-link">View on GitHub</a>
-
-            <h4 style="font-size: 13px; margin-top:25px; text-transform: none; line-height: 1.4;">Note: <b>This chart uses synthetic data to demonstrate the Variable Type technology.</b></h4>
 
             <div style="margin-top: 40px; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
                 <button id="downloadCSV" class="btn-black">Download CSV Structure</button>
             </div>
         </div>
 
-        <div class="visual-column">
-            <div class="chart-area">
+        <div style="display: flex; flex-direction: column; align-items: center; width: 100%;">
+            <div style="background: #fff; border-radius: 10px; padding: 25px; border: 1px solid rgba(32, 26, 52, 0.1); width: 100%;">
                 <div id="grid-visualizer" class="tree-grid"></div>
             </div>
 
-            <div class="slider-wrapper">
-                <div class="slider-labels"><span>+4°C</span><span>0°C</span><span>-4°C</span></div>
-                <input type="range" id="tempSlider" min="-4" max="4" step="0.1" value="0">
-                <div class="slider-caption">Global Temperature Deviation</div>
+            <div style="width: 100%; max-width: 450px; margin-top: 30px; text-align: center;">
+                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 12px; margin-bottom: 8px;"><span>+4°C</span><span>0°C</span><span>-4°C</span></div>
+                <input type="range" id="tempSlider" min="-4" max="4" step="0.1" value="0" style="width: 100%; cursor: pointer; accent-color: var(--deep-blue);">
+                <div style="font-size: 11px; font-weight: bold; margin-top: 8px; text-transform: uppercase; letter-spacing: 1px;">Global Temperature Deviation</div>
             </div>
         </div>
     </section>
 
-    <section class="section-card roadmap-container">
-        <div class="roadmap-visuals">
-            <div class="roadmap-img-box">
-                <img src="images/InDesign.gif" alt="InDesign GIF">
-                <span class="img-caption">Font axes adjustment in InDesign</span>
-            </div>
-            <div class="roadmap-img-box">
-                <img src="images/glyphs_01.png" alt="Glyphs App">
-                <span class="img-caption">Paths and masters in glyphs.app.</span>
-            </div>
-        </div>
+    <section class="section-card">
+        <h2 class="headline-style" style="color: var(--deep-blue); margin-bottom: 40px;">
+            WH<span class="inline-glyph glyph-a">B</span>T'S NEXT
+        </h2>
+
+        <img src="images/Pages.gif" alt="Graphic Novel Pages" style="width: 100%; max-width: 600px; display: block; margin: 0 auto 30px auto; border-radius: 10px; border: 1px solid var(--deep-blue);">
 
         <div class="roadmap-text">
-            <strong>What’s next</strong>
-            <ul style="margin-top:15px; line-height: 2; padding-left: 20px; font-size: 14px;">
+            <ul style="margin-top:15px; line-height: 1.8; padding-left: 20px; font-size: 14px;">
                 <li>Further font development</li>
                 <li>Real scientific data mapping</li>
                 <li>Custom CSV Upload</li>
+                <li>Graphic Novel Exhibition at the Berlin Comic Invasion (April 28 - May 10)</li>
             </ul>
+            <p style="margin-top:20px; font-size:14px;">
+                <strong>Learn more on the <a href="https://www.aisu.studio/fotl" target="_blank" style="color:var(--deep-blue);">Project Page</a></strong>
+            </p>
         </div>
     </section>
-
-<!--    <section class="section-card">-->
-<!--        <div id="sib-form-container" class="sib-form-container">-->
-<!--            <div id="error-message" class="sib-form-message-panel" style="display:none; font-size:16px; text-align:left; font-family:var(&#45;&#45;font-main); color:#661d1d; background-color:#ffeded; padding: 20px;">-->
-<!--                Your sign-up could not be completed, please try again. 😬-->
-<!--            </div>-->
-<!--            <div id="success-message" class="sib-form-message-panel" style="display:none; font-size:16px; text-align:left; font-family:var(&#45;&#45;font-main); color:#085229; background-color:#e7faf0; padding: 20px;">-->
-<!--                You successfully signed up! Thank you! 🍦-->
-<!--            </div>-->
-
-<!--            <div id="sib-container">-->
-<!--                <form id="sib-form" method="POST" action="https://b4bd4110.sibforms.com/serve/MUIFAINf4licm-T5QvrxZ_CY-pVO_BB-R4-cFt-3gThtSnSjsybwaqLgk6y0_icI6hthoVFF_a9KKkVfQ_Dr3uvvdr2oDpmcFxTOqF8rxdN-Rz-3RUwjSwK2Qu5Q1fApimVHb2wNWggiSVPtbSqjcVZCVSmkijB2YYiuBEY4EdzYdCl9oPlRgMcup1LDGmp5DfPqgF65b4-_tm5PvA==" data-type="subscription">-->
-
-<!--                    <h2 style="font-family: 'Arial Black', sans-serif; font-size: clamp(24px, 5vw, 32px); margin: 0 0 10px 0;">Fire on the Land Newsletter</h2>-->
-
-<!--                    <div style="font-family: var(&#45;&#45;font-mono); font-weight: bold; font-size: 14px; margin-bottom: 25px; line-height: 1.6;">-->
-<!--                        Stay up to date with the latest news:<br>-->
-<!--                        • The Graphic Novel 🍿 &nbsp;<br>-->
-<!--                        • The Free Comic Font 🍦<br>-->
-<!--                        • Variable Font × Data Visualisation Tool 📊<br>-->
-<!--                        • Exhibitions and more 🖼️-->
-<!--                    </div>-->
-
-<!--                    <div class="sib-input sib-form-block">-->
-<!--                        <label style="font-weight: bold; display: block; margin-bottom: 8px; font-size: 14px;">Sign up with your email address</label>-->
-<!--                        <input class="input" type="text" id="EMAIL" name="EMAIL" placeholder="EMAIL" required />-->
-<!--                        <p style="font-size: 11px; margin-top: 8px; opacity: 0.6;">Please enter your email address to register, e.g. abc@xyz.com.</p>-->
-<!--                    </div>-->
-
-<!--                    <div class="sib-form-block" style="margin-top: 20px;">-->
-<!--                        <button class="sib-form-block__button" form="sib-form" type="submit">Sign Up</button>-->
-<!--                    </div>-->
-
-<!--                    <input type="text" name="email_address_check" value="" style="display:none;">-->
-<!--                    <input type="hidden" name="locale" value="de">-->
-<!--                </form>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
 
     <footer style="text-align: center; font-size: 11px; padding: 40px 20px; opacity: 0.5;">©2026 Aisu.Studio</footer>
 </div>
 
 <script>
-    // Animation Logic
     const btn = document.getElementById('toggleBtn');
     const animEls = { w: document.getElementById('g-weight'), a: document.getElementById('g-ascn'), s: document.getElementById('g-slnt'), all: document.getElementById('g-all') };
     let isRunning = false, startAnimTime = null;
@@ -330,7 +217,6 @@
     }
     btn.addEventListener('click', () => { isRunning = !isRunning; if (isRunning) { startAnimTime = null; requestAnimationFrame(animateHeader); } });
 
-    // Chart Logic
     const slider = document.getElementById('tempSlider');
     const grid = document.getElementById('grid-visualizer');
     let forestData = [];
@@ -361,8 +247,7 @@
                     base_ascn: isWater ? 0 : (550 + Math.random()*150),
                     base_slnt: isBank ? 12 : 0,
                     sens_fire: isWater ? 0 : (isBank ? 0.4 : 1.8),
-                    sens_slant: isBank ? 5.8 : 0.6,
-                    zone: isWater ? 'water' : (isBank ? 'bank' : 'forest')
+                    sens_slant: isBank ? 5.8 : 0.6
                 });
             }
         }
@@ -374,8 +259,13 @@
             const tree = document.createElement('div');
             tree.className = 'grid-tree';
             tree.id = `tree-${d.id}`;
-            if (d.isWater) { tree.style.background = "rgba(0, 100, 255, 0.04)"; tree.style.borderRadius = "4px"; }
-            else { tree.innerText = 'B'; }
+            // Hier wird das "B" fest als Icon gesetzt:
+            if (d.isWater) {
+                tree.style.background = "rgba(0, 100, 255, 0.04)";
+                tree.style.borderRadius = "4px";
+            } else {
+                tree.innerText = 'B';
+            }
             grid.appendChild(tree);
         });
         updateTrees(0);
@@ -402,16 +292,7 @@
         link.setAttribute("download", "forest_data.csv");
         link.click();
     });
-
-    // Brevo Scripts
-    // window.REQUIRED_CODE_ERROR_MESSAGE = 'Wähle bitte einen Ländervorwahl aus.';
-   //  window.LOCALE = 'de';
-   //  window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "Your information seems not valid, please try again. 😳";
-   //  window.REQUIRED_ERROR_MESSAGE = "This field can't be left empty. 🫥 ";
-   //  window.GENERIC_INVALID_MESSAGE = "Your information seems not valid, please try again. 😳";
-   //  window.translation = { common: { selectedList: '{quantity} Liste ausgewählt', selectedLists: '{quantity} Listen ausgewählt', selectedOption: '{quantity} ausgewählt', selectedOptions: '{quantity} ausgewählt', } };
 </script>
-<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
 </body>
 </html>
